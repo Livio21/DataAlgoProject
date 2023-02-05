@@ -3,20 +3,14 @@
     <div class="">
       <h1 class="font-bold text-5xl pb-5 text-slate-800">Caesar Cipher</h1>
       <span class="text-slate-600 font-semibold ml-3 mb-3">About</span>
-      <p class=" bg-white rounded-3xl p-4">This is a simple Caesar Cipher app. It is a type of substitution cipher in which each
+      <p class=" bg-white rounded-3xl p-4 shadow-sm">This is a simple Caesar Cipher app. It is a type of substitution cipher in
+        which each
         letter in the plaintext is replaced by a letter some fixed number of positions down the alphabet. For example,
         with a shift of 3, D would be replaced by A, E would become B, and so on. The method is named after Julius
         Caesar, who used it in his private correspondence.</p>
+
     </div>
-    <div class="flex flex-col">
-      <span class="font-medium text-xl text-slate-900 text-center ">{{ !option ? 'Decrypt?' : 'Encrypt?' }}</span>
-      <label class="relative inline-flex items-center cursor-pointer">
-        <input type="checkbox" value="true" class="sr-only peer" v-model="option">
-        <div
-          class="w-28 h-16 bg-green-600 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[7px] after:left-1  after:bg-white after:border-gray-300 after:border after:rounded-full after:h-[50px] after:w-[50px] after:transition-all border-gray-600 peer-checked:bg-red-600">
-        </div>
-      </label>
-    </div>
+
     <form @submit.prevent=""
       class="grid grid-cols-3 grid-rows-2 grid-flow-dense divide-x-2 rounded-3xl shadow-md bg-white ">
       <div class=" col-span-3 row-span-2 sm:row-span-2 sm:col-span-2">
@@ -39,12 +33,25 @@
         :class="option ? 'bg-red-500 active:bg-red-600 hover:bg-red-400' : 'bg-green-500 active:bg-green-600 hover:bg-green-400'"
         @click="btnAction">{{ option? 'Decrypt': 'Encrypt' }}</button>
     </form>
-
+    <div class="flex flex-col ">
+      <span class="font-medium text-xl text-slate-900 text-center ">{{ !option ? 'Decrypt?' : 'Encrypt?' }}</span>
+      <label class="relative inline-flex items-center cursor-pointer rounded-full shadow-lg">
+        <input type="checkbox" value="true" class="sr-only peer" v-model="option">
+        <div
+          class="w-28 h-16 shadow-inner bg-green-600 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[7px] after:left-1  after:bg-white after:border-gray-300 after:border after:rounded-full after:h-[50px] after:w-[50px] after:transition-all border-gray-600 peer-checked:bg-red-600">
+        </div>
+      </label>
+    </div>
     <div class=" w-full flex flex-col gap-5">
       <h2 class="text-2xl font-bold text-slate-800 ">Result</h2>
       <p class="text-slate-600">Shift: {{ shift }}</p>
-      <p class="bg-white rounded-3xl p-5 text-slate-600 font-semibold text-lg">{{ result? result: 'Result goes here' }}
+      <p class="bg-white rounded-3xl p-5 text-slate-600 font-semibold text-lg shadow-sm">{{ result? result: 'Result goes here' }}
       </p>
+    </div>
+    <div class="text-xl text-slate-700 font-bold mx-auto">
+      <span>Project done by <span
+          class="name bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-emerald-500 to-teal-600">Livio
+          Macaj</span></span>
     </div>
   </div>
 </template>
@@ -149,5 +156,21 @@ const decrypt = () => {
 
 * {
   font-family: 'Roboto', sans-serif;
+}
+
+.name {
+  background-size: 200% auto;
+  color: #000;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  animation: shine 2s ease-out infinite;
+
+  @keyframes shine {
+    to {
+      background-position: 200% center;
+    }
+  }
 }
 </style>
