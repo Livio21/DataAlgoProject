@@ -1,14 +1,26 @@
 <template>
-    <div class="bg-gray-100 rounded-3xl shadow-md p-10 flex flex-col gap-5">
+    <div class="bg-gray-100 rounded-3xl shadow-md p-10 flex flex-col gap-5 items-center ">
         <div class="">
-            <div class="flex bg-white divide-x-2 rounded-lg">
-                <input type="number" class="p-4 text-xl" v-model="variable" min="0">
+            <h1 class="font-bold text-5xl pb-5 text-slate-800">Heap sort</h1>
+            <span class="text-slate-600 font-semibold ml-3 mb-3">About</span>
+            <p class=" bg-white rounded-3xl p-4 shadow-sm text-slate-800">
+                Heap sort is a comparison-based sorting algorithm. Heapsort can be thought of as an improved selection
+                sort: like that algorithm, it divides its input into a sorted and an unsorted region, and it iteratively
+                shrinks the unsorted region by extracting the largest element and moving that to the sorted region. The
+                improvement consists of the use of a heap data structure rather than a linear-time search to find the
+                maximum.
+            </p>
+
+        </div>
+        <div class="">
+            <div class="flex  divide-x-2 rounded-lg">
+                <input type="number" class="p-4 text-xl" v-model="variable" >
                 <button @click="addElement"
                     class="p-4 text-white bg-blue-500 rounded-r-xl font-semibold text-lg active:scale-95 active:shadow-none transition-all duration-150 ease-in-out">
                     Add</button>
             </div>
             <span id="err" class="p-3 text-red-500 font-semibold text-lg">{{ errMsg }}</span>
-            
+
             <p class="p-3 bg-white my-3 rounded-xl">Array before: {{ prevArr }}</p>
             <p class="p-3 bg-white my-3 rounded-xl">Array after: {{ arr }}</p>
         </div>
@@ -25,8 +37,12 @@
                 </div>
             </transition-group>
         </div>
-        <button @click="btnAction(arr)"
-            class="mt-10 text-white text-xl font-bold bg-green-500 rounded-xl px-5 py-2 shadow-sm active:scale-95 active:shadow-none transition-all duration-150 ease-in-out">Sort</button>
+        <div class="flex gap-5">
+            <button @click="btnAction(arr)"
+                class="mt-10 text-white text-xl font-bold bg-green-500 rounded-xl px-5 py-2 shadow-sm active:scale-95 active:shadow-none transition-all duration-150 ease-in-out">Sort</button>
+            <button @click="reset"
+                class="mt-10 text-white text-xl font-bold bg-red-500 rounded-xl px-5 py-2 shadow-sm active:scale-95 active:shadow-none transition-all duration-150 ease-in-out">Reset</button>
+        </div>
 
     </div>
 </template>
@@ -40,6 +56,12 @@ const arr = ref([]);
 const prevArr = ref([]);
 const errMsg = ref('');
 
+const reset = () => {
+    arr.value = [];
+    prevArr.value = [];
+    variable.value = 0;
+    errMsg.value = '';
+}
 const addElement = () => {
     if (variable.value == '') {
         errMsg.value = 'Empty input.'

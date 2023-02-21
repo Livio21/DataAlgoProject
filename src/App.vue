@@ -33,7 +33,7 @@ import PageHeader from './components/PageHeader.vue';
 import HeapSort from './components/HeapSort.vue';
 import { ref } from 'vue';
 
-const selected = ref('HeapSort');
+const selected = ref('CeaserCypher');
 
 
 
