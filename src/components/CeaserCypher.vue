@@ -3,12 +3,12 @@
         <div class="">
             <h1 class="font-bold text-5xl pb-5 text-slate-800">Caesar Cipher</h1>
             <span class="text-slate-600 font-semibold ml-3 mb-3">About</span>
-            <p class=" bg-white rounded-3xl p-4 shadow-sm text-slate-800">This is a simple Caesar Cipher app. It is a type of
+            <p class=" bg-white rounded-3xl p-4 shadow-sm text-slate-800"> Caesar Cipher is a type of
                 substitution cipher in
                 which each
                 letter in the plaintext is replaced by a letter some fixed number of positions down the alphabet. For
                 example,
-                with a shift of 3, D would be replaced by A, E would become B, and so on. The method is named after
+                with a shift of 3, A would be replaced by D, B would become E, and so on. The method is named after
                 Julius
                 Caesar, who used it in his private correspondence.</p>
 
@@ -57,7 +57,10 @@
             }}
             </p>
         </div>
-
+    </div>
+    <div class="p-5 bg-gray-100 rounded-3xl mb-10">
+        <span class="text-slate-600 font-semibold ml-3 mb-3">Code:</span>
+        <img src="../assets/code.png" class=" rounded-lg" alt="" srcset="" width="600">
     </div>
 </template>
 
@@ -110,7 +113,6 @@ const encrypt = () => {
         result.value += c;
     }
 
-    // All done!
     return result.value;
 };
 
@@ -147,7 +149,6 @@ const decrypt = () => {
         result.value += c;
     }
 
-    // All done!
     return result.value;
 };
 

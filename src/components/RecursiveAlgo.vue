@@ -1,9 +1,10 @@
 <template>
     <div class="bg-gray-100 rounded-3xl p-10 flex flex-col gap-5">
         <div class="">
-            <h1 class="font-bold text-5xl pb-5 text-slate-800">Recursive Algorithms (Multiplication)</h1>
+            <h1 class="font-bold text-5xl pb-5 text-slate-800">Multiplication (Recursive Algorithms)</h1>
             <span class="text-slate-600 font-semibold ml-3 mb-3">About</span>
-            <p class=" bg-white rounded-3xl p-4 shadow-sm text-slate-800">This function works by repeatedly adding m to itself n - 1
+            <p class=" bg-white rounded-3xl p-4 shadow-sm text-slate-800">This function works by repeatedly adding m to
+                itself n - 1
                 times. The function uses recursion to keep track of the
                 number of times m should be added to itself, until n becomes 0 or 1. When n is 0, the function returns
                 0, and when n is
@@ -42,6 +43,10 @@
                 @click="multiply(number1, number2)">Multiply</button>
         </div>
     </div>
+    <div class="p-5 bg-gray-100 rounded-3xl mb-10">
+        <span class="text-slate-600 font-semibold ml-3 mb-3">Code:</span>
+        <img src="../assets/code2.png" class=" rounded-lg" alt="" srcset="" width="600">
+    </div>
 </template>
 
 <script setup>
@@ -56,7 +61,6 @@ function multiply(m, n) {
     if (n === 0) {
         return 0;
     }
-
     // recursive case
     return result.value = (m + multiply(m, n - 1));
 }
